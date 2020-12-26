@@ -7,4 +7,3 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This is full shopping card that created by ReactJS and Redux.You can add items and remove them from your shopping cart.
 you can filter your products and in the end you can see your Factor in the right of the page.
 
-![Alt text](public/images/shopping-cart.png?raw=true "Title")
