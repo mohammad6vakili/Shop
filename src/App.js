@@ -49,7 +49,7 @@ const App=()=>{
     <div className='App'>
 
     <header className='header'>
-      <a href='/'>Mohammad Shopping Card</a>
+      <a href='/'>Mohammad Shopping Cart</a>
     </header>
   
 
