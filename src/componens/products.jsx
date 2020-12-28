@@ -1,21 +1,26 @@
 import React from 'react';
 
 
-const Product =({products})=>{
+const Product =({product})=>{
+
+
+
+ 
+
 
     return(
 
-        <ul className='products'>
-            {products.map((product)=>(
-                <li key={product.id}>
+        <ul className='products '>
+            {product.map((product)=>(
+                <li className=' col-4-lg' key={product.id}>
                     <div className='product'>
-                        <a href="#">
+                        <a href="/">
                             <img src={product.image} alt={product.title}/>
                             <p>{product.title}</p>
                         </a>
-                        <div className="product-price">
-                            <div>${product.price}</div>
-                            <button className='btn btn-warning ml-3'>Add to Card</button>
+                        <div className="product-price pb-2 container-fluid">
+                            <div className='container'>${product.price}</div>
+                            <button className='btn btn-warning btn-sm add-btn'>Add to Card</button>
                         </div>
                     </div>
                 </li>
