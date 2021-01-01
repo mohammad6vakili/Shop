@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Filter=({product,size,sort,sortProducts,filterProducts})=>{
+const Filter=({count,size,sort,sortProducts,filterProducts})=>{
 return(
 
 <div className='filter'>
-    <div className="filter-result"><span style={{fontWeight:900}} className='mr-2'>{product}</span>Products</div>
+    <div className="filter-result"><span style={{fontWeight:900}} className='mr-2'>{count}</span>Products</div>
     <div className="filter-sort">
         Order {" "}
         <select value={sort} onChange={sortProducts}>
