@@ -1,13 +1,13 @@
 import React from 'react';
 
 
-const Product =({product})=>{
+const Product =({products,addToCart})=>{
 
 
     return(
 
         <ul className='products '>
-            {product.map((product)=>(
+            {products.map((product)=>(
                 <li className=' col-4-lg' key={product.id}>
                     <div className='product'>
                         <a href="/">
@@ -16,7 +16,7 @@ const Product =({product})=>{
                         </a>
                         <div className="product-price pb-2 container-fluid">
                             <div className='container'>${product.price}</div>
-                            <button className='btn btn-warning btn-sm add-btn'>Add to Card</button>
+                            <button onClick={()=>addToCart(product)} className='btn btn-warning btn-sm add-btn'>Add to Card</button>
                         </div>
                     </div>
                 </li>
