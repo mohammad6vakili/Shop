@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cart=({cartItems,removeFromCart})=>{
+const Cart=({cartItems,removeFromCart,showCheckout,showCheckoutForm,createOrder,inputHandler})=>{
 
     return(
         <div className='cart'>
@@ -28,17 +28,40 @@ const Cart=({cartItems,removeFromCart})=>{
                         ))}
                     </div>
                     {cartItems.length!==0 && 
-                    <div className='payment-section'>
-                        <div className='total'>
-                            <div>
-                                Total: {"  $ "}
-                                { cartItems.reduce((a,c)=>a+c.price*c.count,0).toFixed(2)}
+                    <div>
+                        <div className='payment-section'>
+                            <div className='total'>
+                                <div>
+                                    Total: {"  $ "}
+                                    { cartItems.reduce((a,c)=>a+c.price*c.count,0).toFixed(2)}
+                                </div>
+                                <button onClick={showCheckoutForm} className='payment-button'>Proceed</button>
                             </div>
-                            <button className='payment-button'>Proceed</button>
                         </div>
+                        {showCheckout && 
+                            <form className='mt-5' onSubmit={createOrder}>
+                                <ul className='form-container'>
+                                    <li>
+                                        <label htmlFor="name">Name</label>
+                                        <input type="text" name='name' required onChange={inputHandler}/>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="email">Email</label>
+                                        <input type="email" name='email' required onChange={inputHandler}/>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="address">Address</label>
+                                        <input type="text" name='address' required onChange={inputHandler}/>
+                                    </li>
+                                    <li>
+                                        <button className='checkout-button' type='submit'>Checkout</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        }
                     </div>
                     }
-           
+                    
          </div>
        
     )
