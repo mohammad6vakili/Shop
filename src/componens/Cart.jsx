@@ -15,7 +15,7 @@ const Cart=({cartItems,removeFromCart})=>{
                         {cartItems.map((item)=>(
                             <ul key={item.id}>
                                 <li className='cart-item container' >
-                                  <div className='cart-item-image'> <img src={item.image} alt="item image"/> </div>
+                                  <div className='cart-item-image'> <img src={item.image} alt="item"/> </div>
                                   <div className='cart-item-right'>
                                       <div style={{fontSize:13+'px'}} className='p-1'>{item.title}</div>
                                       <div className='w-100 d-flex justify-content-around pr-2'>

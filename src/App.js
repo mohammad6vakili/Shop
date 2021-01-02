@@ -14,9 +14,9 @@ const App=()=>{
   const [products , setProducts]=useState([]);
   const [size , setSize]=useState('');
   const [sort , setSort]=useState('');
-  const [cartItems , setCartItems]=useState([]);
+  const [cartItems , setCartItems]=useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')):[]);
 
-
+  
 
 
   useEffect(() => {
@@ -28,9 +28,8 @@ const removeFromCart=(product)=>{
   const cartItem=cartItems.slice();
   setCartItems(
   cartItem.filter((item)=>item.id!==product.id)
-  )
-
-  
+  );
+  localStorage.setItem('cartItems',JSON.stringify(cartItem.filter((item)=>item.id!==product.id)))
 }
 
 
@@ -49,14 +48,14 @@ const addToCart=(product)=>{
     
   }
   setCartItems(cartItem);
+  localStorage.setItem('cartItems',JSON.stringify(cartItem))
   
 }
 
 
 
   const sortProducts=(e)=>{ 
-    console.log(e.target.value);
-    setSort(e.target.value);
+    setSort(e.target.value)
     setProducts(products.slice().sort((a,b)=>(
         sort==='lowest' ? ((a.price>b.price)?1:-1):
         sort==='highest' ? ((a.price<b.price)?1:-1):
@@ -65,7 +64,6 @@ const addToCart=(product)=>{
   }
 
   const filterProducts=(e)=>{
-    console.log(e.target.value);
     if(e.target.value===''){
       return   setSize(e.target.value) , setProducts(data.products)
     }else{
@@ -76,9 +74,7 @@ const addToCart=(product)=>{
 
   const getData=()=>{
     setProducts(data.products)
-    console.log(products);
   }
-
 
 
   return(
