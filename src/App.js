@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import './index.css';
-import Product from './componens/products';
+import Product from './components/products';
 import data from './data.json';
-import Filter from './componens/Filter';
-import Cart from './componens/Cart';
+import Filter from './components/Filter';
+import Cart from './components/Cart';
 
 
 
