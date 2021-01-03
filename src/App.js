@@ -18,6 +18,7 @@ const App=()=>{
   const [name,setName]=useState('ali');
   const [email,setEmail]=useState('');
   const [address,setAddress]=useState('');
+  const [modal,setModal]=useState(null);
 
   
 
@@ -106,13 +107,26 @@ const App=()=>{
 
 
 
+  const openModal=(product)=>{
+    setModal({product:product});
+    console.log(modal);
+  }
+
+
+
+  const closeModal=()=>{
+    setModal(null);
+  }
+
+  
+
 
   return(
 
     <div className='App'>
 
     <header className='header'>
-      <a href='/'>Mohammad Shopping Card</a>
+      <a href='/'>My Shop</a>
     </header>
   
 
@@ -134,6 +148,9 @@ const App=()=>{
               <Product
               products={products}
               addToCart={addToCart}
+              openModal={openModal}
+              closeModal={closeModal}
+              modal={modal}
               />
             </div>
 

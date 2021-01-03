@@ -1,4 +1,5 @@
 import React from 'react';
+import Fade from 'react-reveal/Fade';
 
 const Cart=({cartItems,removeFromCart,showCheckout,showCheckoutForm,createOrder,inputHandler})=>{
 
@@ -12,9 +13,11 @@ const Cart=({cartItems,removeFromCart,showCheckout,showCheckoutForm,createOrder,
 
                     <div className='cart-body'>
 
-                        {cartItems.map((item)=>(
-                            <ul key={item.id}>
-                                <li className='cart-item container' >
+                        
+                            <Fade left cascade>
+                            <ul >
+                            {cartItems.map((item)=>(
+                                <li key={item.id} className='cart-item container mt-1 mb-3' >
                                   <div className='cart-item-image'> <img src={item.image} alt="item"/> </div>
                                   <div className='cart-item-right'>
                                       <div style={{fontSize:13+'px'}} className='p-1'>{item.title}</div>
@@ -23,9 +26,10 @@ const Cart=({cartItems,removeFromCart,showCheckout,showCheckoutForm,createOrder,
                                       <button onClick={()=>removeFromCart(item)} className='cart-item-remove'>Remove</button>
                                       </div>                                        
                                   </div>
-                                </li>
+                                </li>))}
                             </ul>
-                        ))}
+                            </Fade>
+                      
                     </div>
                     {cartItems.length!==0 && 
                     <div>
@@ -38,6 +42,7 @@ const Cart=({cartItems,removeFromCart,showCheckout,showCheckoutForm,createOrder,
                                 <button onClick={showCheckoutForm} className='payment-button'>Proceed</button>
                             </div>
                         </div>
+                        <Fade right cascade>
                         {showCheckout && 
                             <form className='mt-5' onSubmit={createOrder}>
                                 <ul className='form-container'>
@@ -59,6 +64,7 @@ const Cart=({cartItems,removeFromCart,showCheckout,showCheckoutForm,createOrder,
                                 </ul>
                             </form>
                         }
+                        </Fade>
                     </div>
                     }
                     
