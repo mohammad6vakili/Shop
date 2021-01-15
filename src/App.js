@@ -1,9 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import './index.css';
+import Navigation from './components/Navigation';
 import Product from './components/products';
 import data from './data.json';
 import Filter from './components/Filter';
 import Cart from './components/Cart';
+
+
 
 
 
@@ -126,13 +129,14 @@ const App=()=>{
     <div className='App'>
 
     <header className='header'>
-      <a href='/'>My Shop</a>
+      <Navigation/>
     </header>
   
 
   <main className='p-2 main'>
 
 
+ 
       <Filter 
       count={products.length}
       size={size}
@@ -142,33 +146,31 @@ const App=()=>{
       />
 
 
-        <div className='div container-fluid row'>
+            <div className='div container-fluid row'>
+            
+                <div className='content col-9'>
+                  <Product
+                  products={products}
+                  addToCart={addToCart}
+                  openModal={openModal}
+                  closeModal={closeModal}
+                  modal={modal}
+                  />
+                </div>
 
-            <div className='content col-9'>
-              <Product
-              products={products}
-              addToCart={addToCart}
-              openModal={openModal}
-              closeModal={closeModal}
-              modal={modal}
-              />
+                <div className='sidebar col-3 mt-3'>
+                  <Cart 
+                  removeFromCart={removeFromCart} 
+                  cartItems={cartItems} 
+                  showCheckout={showCheckout} 
+                  showCheckoutForm={showCheckoutForm}
+                  createOrder={createOrder}
+                  inputHandler={inputHandler}
+                  />
+
+                </div>
             </div>
-
-            <div className='sidebar col-3 mt-3'>
-              <Cart 
-              removeFromCart={removeFromCart} 
-              cartItems={cartItems} 
-              showCheckout={showCheckout} 
-              showCheckoutForm={showCheckoutForm}
-              createOrder={createOrder}
-              inputHandler={inputHandler}
-              />
-
-            </div>
-
-        </div>
-
-
+            )}
   </main>
 
 
