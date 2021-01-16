@@ -1,9 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import './index.css';
-import Product from './components/products';
 import data from './data.json';
-import Filter from './components/Filter';
-import Cart from './components/Cart';
+import Shop from './components/Shop';
+import Contact from './components/Contact';
+import Fade from 'react-reveal';
+import Zoom from 'react-reveal';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Link} from 'react-router-dom';
+
 
 
 
@@ -102,7 +106,7 @@ const App=()=>{
 
   const createOrder=(e)=>{
     e.preventDefault();
-    alert('You need to save order')
+    alert('This is an unfinished project')
   }
 
 
@@ -124,56 +128,55 @@ const App=()=>{
   return(
 
     <div className='App'>
-
-    <header className='header'>
-      <a href='/'>My Shop</a>
-    </header>
-  
-
-  <main className='p-2 main'>
-
-
-      <Filter 
-      count={products.length}
-      size={size}
-      sort={sort}
-      sortProducts={sortProducts}
-      filterProducts={filterProducts}
-      />
+          <Router>
+          <header className='header'>
+            <ul className='nav-list'>
+              <Zoom><Link to='/'><li id='first-nav-link' className='nav-link'>Shop</li></Link></Zoom>
+              <Fade top>
+              <li className='nav-link'><a href='https://github.com/mohammad6vakili/shopping-cart'>GitHub</a></li>
+              <Link className='router-link' to='/contact'><li className='nav-link'>Contact</li></Link>
+              <li className='nav-link ml-auto'>MohammadAli Vakilidoost</li>
+              </Fade>
+            </ul>
+          </header>
 
 
-        <div className='div container-fluid row'>
 
-            <div className='content col-9'>
-              <Product
-              products={products}
-              addToCart={addToCart}
-              openModal={openModal}
-              closeModal={closeModal}
-              modal={modal}
-              />
-            </div>
+          <main className='main'>
+            <Switch>
+              <Route 
+              path='/' exact
+              render={(props) => (
+                <Shop
+                      {...props}
+                      count={products.length}
+                      size={size}
+                      sort={sort}
+                      sortProducts={sortProducts}
+                      filterProducts={filterProducts}    
+                      products={products}
+                      addToCart={addToCart}
+                      openModal={openModal}
+                      closeModal={closeModal}
+                      modal={modal}
+                      removeFromCart={removeFromCart} 
+                      cartItems={cartItems} 
+                      showCheckout={showCheckout} 
+                      showCheckoutForm={showCheckoutForm}
+                      createOrder={createOrder}
+                      inputHandler={inputHandler} 
+                    />
+                  )}
+                />
 
-            <div className='sidebar col-3 mt-3'>
-              <Cart 
-              removeFromCart={removeFromCart} 
-              cartItems={cartItems} 
-              showCheckout={showCheckout} 
-              showCheckoutForm={showCheckoutForm}
-              createOrder={createOrder}
-              inputHandler={inputHandler}
-              />
-
-            </div>
-
-        </div>
+              <Route path="/contact" exact component={Contact} />
 
 
-  </main>
+              </Switch> 
+          </main>
 
-
-    <footer className='footer'>All Right Reserved.</footer>
-  
+          <footer className='footer'>All Right Reserved.</footer>
+          </Router>
   </div>
 
   )
