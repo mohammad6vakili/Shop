@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Fade from 'react-reveal/Fade';
 import Modal from 'react-modal';
 import Zoom from 'react-reveal/Zoom';
+import {AppContext} from '../AppContext';
 
 
-const Product =({products,addToCart,openModal,closeModal,modal})=>{
+const Product =()=>{
 
+    const{
+        products,
+        addToCart,
+        openModal,
+        closeModal,
+        modal
+    } = useContext(AppContext)
 
     return(
             <div>

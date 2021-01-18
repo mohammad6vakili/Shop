@@ -1,8 +1,20 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Fade from 'react-reveal/Fade';
+import { AppContext } from '../AppContext';
 
-const Cart=({cartItems,removeFromCart,showCheckout,showCheckoutForm,createOrder,inputHandler})=>{
+const Cart=()=>{
 
+//Import State from Context    
+    const {
+        cartItems,
+        removeFromCart,
+        showCheckout,
+        showCheckoutForm,
+        createOrder,
+        inputHandler
+    } = useContext(AppContext)
+
+    
     return(
         <div className='cart'>
             
@@ -48,15 +60,15 @@ const Cart=({cartItems,removeFromCart,showCheckout,showCheckoutForm,createOrder,
                                 <ul className='form-container'>
                                     <li>
                                         <label htmlFor="name">Name</label>
-                                        <input type="text" name='name' required onChange={inputHandler}/>
+                                        <input type="text" name='name' required/>
                                     </li>
                                     <li>
                                         <label htmlFor="email">Email</label>
-                                        <input type="email" name='email' required onChange={inputHandler}/>
+                                        <input type="email" name='email' required/>
                                     </li>
                                     <li>
                                         <label htmlFor="address">Address</label>
-                                        <input type="text" name='address' required onChange={inputHandler}/>
+                                        <input type="text" name='address' required/>
                                     </li>
                                     <li>
                                         <button className='checkout-button' type='submit'>Checkout</button>
