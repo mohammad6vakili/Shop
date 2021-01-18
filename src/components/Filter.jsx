@@ -1,10 +1,24 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import {AppContext} from '../AppContext';
 
-const Filter=({count,size,sort,sortProducts,filterProducts})=>{
+const Filter=()=>{
+
+    const {
+        products,
+        size,
+        sort,
+        sortProducts,
+        filterProducts
+    } = useContext(AppContext);
+
+
+
+
+
 return(
 
-<div className='filter'>
-    <div className="filter-result"><span style={{fontWeight:900}} className='mr-2'>{count}</span>Products</div>
+<div  className='filter'>
+    <div className="filter-result"><span style={{fontWeight:900}} className='mr-2'>{products.length}</span>Products</div>
     <div className="filter-sort">
         Order {" "}
         <select value={sort} onChange={sortProducts}>
