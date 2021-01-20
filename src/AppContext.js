@@ -17,6 +17,7 @@ export const AppProvider =(props)=>{
   const [email,setEmail]=useState('');
   const [address,setAddress]=useState('');
   const [modal,setModal]=useState(null);
+  const [order , setOrder] = useState(false);
 
 // ----------------filtere products by their available size -----------------
   const filterProducts=(e)=>{
@@ -74,9 +75,13 @@ export const AppProvider =(props)=>{
 //--------------------------------------------Create Order--------------------------------------------
   const createOrder=(e)=>{
     e.preventDefault();
-    alert('This is an unfinished project')
+    setOrder(true);
   }
 
+//--------------------------------------------Create Order--------------------------------------------
+const closeOrder=()=>{
+  setOrder(false);
+}
 //--------------------------------------------Open Modal Function-------------------------------------
   const openModal=(product)=>{
     setModal({product:product});
@@ -87,6 +92,22 @@ export const AppProvider =(props)=>{
   const closeModal=()=>{
     setModal(null);
   }
+
+  //-------------------------------------------Name Picker---------------------------------------------
+  const getName=(e)=>{
+    setName(e.target.value);
+  }
+
+//-------------------------------------------Email Picker---------------------------------------------
+  const getEmail=(e)=>{
+    setEmail(e.target.value);
+  }
+
+//-------------------------------------------Email Picker---------------------------------------------
+const getAddress=(e)=>{
+  setAddress(e.target.value);
+}
+
 
 //----------------------------------------Collect all passing States-----------------------------------  
   const value = {
@@ -102,15 +123,22 @@ export const AppProvider =(props)=>{
     setShowCheckout,
     modal,
     setModal,
-    // getData,
     filterProducts,
     sortProducts,
     addToCart,
     removeFromCart,
     showCheckoutForm,
     createOrder,
+    closeOrder ,
     openModal,
-    closeModal
+    closeModal ,
+    order ,
+    getName ,
+    name ,
+    getEmail ,
+    email ,
+    getAddress ,
+    address ,
   }
 
   

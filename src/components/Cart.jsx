@@ -11,7 +11,13 @@ const Cart=()=>{
         showCheckout,
         showCheckoutForm,
         createOrder,
-        inputHandler
+        inputHandler,
+        getName,
+        name,
+        getEmail,
+        email,
+        getAddress,
+        address,
     } = useContext(AppContext)
 
     
@@ -60,15 +66,15 @@ const Cart=()=>{
                                 <ul className='form-container'>
                                     <li>
                                         <label htmlFor="name">Name</label>
-                                        <input type="text" name='name' required/>
+                                        <input type="text" name='name' value={name} onChange={getName} required/>
                                     </li>
                                     <li>
                                         <label htmlFor="email">Email</label>
-                                        <input type="email" name='email' required/>
+                                        <input type="email" name='email' value={email} onChange={getEmail} required/>
                                     </li>
                                     <li>
                                         <label htmlFor="address">Address</label>
-                                        <input type="text" name='address' required/>
+                                        <input type="text" name='address' value={address} onChange={getAddress} required/>
                                     </li>
                                     <li>
                                         <button className='checkout-button' type='submit'>Checkout</button>
