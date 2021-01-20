@@ -13,6 +13,7 @@ import {AppProvider} from './AppContext';
 
 const App=()=>{
 
+
   return(
       <AppProvider>
           <div className='App'>
@@ -27,8 +28,6 @@ const App=()=>{
                       </Fade>
                     </ul>
                   </header>
-
-
 
                   <main className='main'>
                     <Switch>
@@ -46,5 +45,3 @@ const App=()=>{
   )
 }
 export default App;
-
-

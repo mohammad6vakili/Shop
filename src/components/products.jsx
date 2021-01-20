@@ -36,7 +36,7 @@ const Product =()=>{
                 </ul>
             </Fade>
             {modal && 
-                <Modal isOpen={true} onRequestClose={closeModal}>
+                <Modal style={{overlay:{backgroundColor:'rgba(0, 0, 0, 0.781)'}}} isOpen={true} onRequestClose={closeModal}>
                     <Zoom>
                         <div className='close-button-container'>
                             <button onClick={closeModal}>X</button>
