@@ -43,7 +43,7 @@ const Shop =()=>{
             <div className='shop-container container-fluid'>
 
             {order && 
-                        <Modal isOpen={true} onRequestClose={closeOrder}>
+                        <Modal className='final-modal' isOpen={true} onRequestClose={closeOrder}>
                         <Fade top> 
                             <div className='d-flex justify-content-end mb-1'><span style={{cursor:'pointer',fontSize:32+'px'}} onClick={closeOrder}>X</span></div>
                             <h1 className='order-modal-message mb-5'>successful</h1>

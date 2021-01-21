@@ -489,21 +489,23 @@ a {
 .ReactModal__Overlay,.ReactModal__Overlay--after-open{
   background-color:rgba(0, 0, 0, 0.836) !important;
 }
-.ReactModal__Content{
+.final-modal{
   width:550px !important;
   height:70% !important;
   background-color:whitesmoke !important;
-  left:30% !important;
-  top:15% !important;
+  margin-left:30% !important;
+  padding: 10px !important;
+  overflow-y: auto;
+  margin-top:5% !important;
   border:1px solid black !important;
 }
 @media only screen and (max-width:1250px){
-  .ReactModal__Content{
+  .final-modal{
     width: 500px !important;
   }
 }
 @media only screen and (max-width:1000px){
-  .ReactModal__Content{
+  .final-modal{
     width: 400px !important;
   }
   .final-modal-div strong{
@@ -512,36 +514,36 @@ a {
   }
 }
 @media only screen and (max-width:850px){
-  .ReactModal__Content{
+  .final-modal{
     width: 350px !important;
   }
 }
 @media only screen and (max-width:800px){
-  .ReactModal__Content{
-    left: 25% !important;
+  .final-modal{
+    margin-left: 25% !important;
     top: 10% !important;
   }
 }
 @media only screen and (max-width:650px){
-  .ReactModal__Content{
-    left: 20% !important;
+  .final-modal{
+    margin-left: 20% !important;
   }
 }
 @media only screen and (max-width:550px){
-  .ReactModal__Content{
-    left: 16% !important;
+  .final-modal{
+    margin-left: 16% !important;
   }
 }
 @media only screen and (max-width:500px){
-  .ReactModal__Content{
-    left: 12% !important;
+  .final-modal{
+    margin-left: 12% !important;
   }
 }
 @media only screen and (max-width:450px){
-  .ReactModal__Content{
+  .final-modal{
     width: 300px !important;
     font-size: 12px !important;
-    left: 16% !important;
+    margin-left: 16% !important;
   }
   .final-modal-div strong{
     font-size: 8px !important;
@@ -549,22 +551,22 @@ a {
     }
 }
 @media only screen and (max-width:400px){
-  .ReactModal__Content{
-    left: 10% !important;
+  .final-modal{
+    margin-left: 10% !important;
   }
 }
 @media only screen and (max-width:360px){
-  .ReactModal__Content{
-    left: 7% !important;
+  .final-modal{
+    margin-left: 7% !important;
   }
 }
 @media only screen and (max-width:340px){
-  .ReactModal__Content{
-    left: 5% !important;
+  .final-modal{
+    margin-left: 5% !important;
   }
 }
 @media only screen and (max-width:325px){
-  .ReactModal__Content{
-    left: 2% !important;
+  .final-modal{
+    margin-left: 2% !important;
   }
 }
