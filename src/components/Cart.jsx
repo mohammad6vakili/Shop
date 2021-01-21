@@ -18,6 +18,7 @@ const Cart=()=>{
         email,
         getAddress,
         address,
+        
     } = useContext(AppContext)
 
     

@@ -20,7 +20,7 @@ const Product =()=>{
             <Fade bottom cascade>
                 <ul className='products '>
                     {products.map((product)=>(
-                        <li className=' col-4-lg' key={product.id}>
+                        <li  key={product.id}>
                             <div className='product'>
                                 <a onClick={()=>openModal(product)}>
                                     <img src={product.image} alt={product.title}/>

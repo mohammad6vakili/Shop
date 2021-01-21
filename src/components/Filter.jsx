@@ -18,9 +18,9 @@ const Filter=()=>{
 return(
 
 <div  className='filter'>
-    <div className="filter-result"><span style={{fontWeight:900}} className='mr-2'>{products.length}</span>Products</div>
+    <div style={{fontWeight:900 , fontSize:20+'px'}} className="filter-result"><span className='mr-2'>{products.length}</span>Products</div>
     <div className="filter-sort">
-        Order {" "}
+       <b>Order</b> {" "}
         <select value={sort} onChange={sortProducts}>
             <option>Latest</option>
             <option value='highest'>Highest</option>
@@ -28,7 +28,7 @@ return(
         </select>
     </div>
     <div className="filter-size">
-        Filter{" "}
+    <b>Filter</b> {" "}
         <select value={size} onChange={filterProducts}>
             <option value="">All</option>
             <option value="XS">XS</option>
@@ -39,7 +39,7 @@ return(
             <option value="XXL">XXL</option>
         </select>
     </div>
-    <div></div>
+    <div className='filter-space'></div>
 </div>
 
 )
