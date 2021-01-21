@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: yekan;
+  scrollbar-width: none;
 }
 @font-face {
   font-family: yekan;
@@ -19,15 +20,23 @@ textarea {
 a {
   text-decoration: none !important;
 }
+#root{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .App {
   width: 100%;
-  height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
+  max-width: 1900px;
+  max-height: 100vh;
+  overflow-x: hidden;
 }
+/* ----------------------------------------------------------------------Header---------------------------------------------------- */
 .header {
   width: 100%;
   height: 80px;
-  background-color: #203040;
+  background-color: #143455;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -46,13 +55,49 @@ a {
   font-weight: 700;
   color: rgb(255, 113, 113) !important;
   text-shadow: 5px 6px 20px rgb(172, 42, 42);
+  animation-name: logo;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+@keyframes logo {
+  from {
+    transform: scale(1.5, 1.5);
+    color: rgb(184, 0, 0) !important;
+    text-shadow: 5px 6px 20px rgb(172, 42, 42);
+  }
+  to {
+    transform: scale(1.1, 1.1);
+    color: white !important;
+    text-shadow: 1530px 2px 10px white;
+  }
 }
 .nav-link {
   margin-right: 70px;
   font-size: 20px;
   color: white;
 }
-
+@media only screen and (max-width:900px){
+  .header{
+    height: 60px;
+  }
+  .nav-link{
+    margin-right: 30px;
+  }
+  .nav-name{
+    margin-right: 0px !important;
+  }
+}
+@media only screen and (max-width:630px){
+  .nav-name{
+    display: none !important;
+  }
+  
+}
+@media only screen and (max-width:400px){
+  .nav-link{
+    margin-right: 10px;
+  }
+}
 .nav-link > a {
   text-decoration: none !important;
   color: white;
@@ -61,28 +106,94 @@ a {
   color: white;
   text-shadow: 1px 2px 15px white;
 }
-.router-link:hover {
+#router-link:hover {
   color: white;
   text-shadow: 1px 2px 15px white;
 }
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------Main and Footer---------------------------------------------------------------- */
+
 .main {
   width: 100%;
-  height: 86vh !important;
+  height: 839px !important;
   overflow-y: auto;
+  background-color: rgba(223, 223, 223, 0.705);
 }
 
 .footer {
   width: 100%;
-  height: 5.6vh;
+  height: 60px;
   background-color: #203040;
   color: whitesmoke;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------Filter Section------------------------------------------------------------ */
+
+.filter {
+  width: 100%;
+  /* height: 5vh; */
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 40, 80, 0.308);
+}
+.filter > div {
+  flex: 1;
+}
+.filter-sort > select {
+  margin-left: 10px;
+}
+.filter-size > select {
+  margin-left: 10px;
+}
+@media only screen and (max-width:800px){
+  .filter-space{
+    display: none;
+  }
+}
+@media only screen and (max-width:430px){
+.filter{
+  flex-direction: column;
+}
+.filter>div{
+  margin-bottom: 15px;
+}
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+.shop-container{
+  display: flex;
+}
+@media only screen and (max-width:988px){
+  .shop-container{
+    flex-direction: column;
+    align-items: center;
+  }
+  .content{
+    width: 100% !important;
+  }
+  .sidebar{
+    width: 50% !important;
+  }
+}
+@media only screen and (max-width:600px){
+  .sidebar{
+    width: 90% !important;
+  }
+}
 .content {
   overflow-y: auto;
+  width: 75%;
+}
+.sidebar{
+  width: 25%;
 }
 
 .products {
@@ -93,14 +204,17 @@ a {
 
 .products > li {
   list-style-type: none;
-  width: 28%;
-  /* height:37vh; */
+  width: 320px;
   margin-top: 20px;
-  box-shadow: 0 0 15px 10px rgba(228, 227, 227, 0.384);
+  box-shadow: 0 0 15px 10px rgb(255, 255, 255);
+}
+@media only screen and (min-width:1730px){
+  .products > li{
+    width: 380px !important;
+  }
 }
 .product {
   width: 100%;
-  /* height: 37vh; */
 }
 .product > a {
   color: rgb(47, 0, 134);
@@ -134,20 +248,8 @@ a {
   align-items: center;
   font-size: 22px;
 }
-
-.filter {
-  width: 100%;
-  /* height: 5vh; */
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-left: 20px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-bottom: 2px solid rgb(199, 199, 199);
-}
-.filter > div {
-  flex: 1;
+.add-btn{
+  padding-top: 10px !important;
 }
 
 .cart {
@@ -194,10 +296,13 @@ a {
   border: 1px solid rgb(253, 24, 24);
   border-radius: 4px;
   background: white;
+  padding-top: 5px;
 }
 .cart-item-remove:hover {
   border: none;
-  border: 2px solid rgb(253, 24, 24);
+  background-color:  rgb(253, 24, 24);
+  color: white;
+  transition-duration: .2s;
   cursor: pointer;
 }
 .total {
@@ -239,7 +344,7 @@ a {
   padding-left: 7px;
 }
 .checkout-button {
-  height: 5vh;
+  height: 40px;
   background-color: rgb(255, 201, 102);
   color: rgb(49, 48, 48) !important;
   border: 1px solid rgba(128, 128, 128, 0.658) !important;
@@ -297,7 +402,7 @@ a {
 }
 .contact-wrapper {
   width: 100%;
-  height: 816px;
+  height: 839px;
   background-color: rgba(0, 25, 63, 0.342);
   display: flex;
   flex-direction: column;
@@ -315,6 +420,25 @@ a {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+@media only screen and (max-width:460px){
+  .contact-wrapper div {
+    width: 300px;
+    justify-content: space-between !important;
+    padding: 5px !important;
+  }
+  .email span:first-child {
+    font-size: 12px !important;
+  }
+  .email span:nth-child(2) {
+    font-size: 16px !important;
+  }
+  .mobile span:nth-child(2) {
+    margin-right: 5px !important;
+  }
+  .contact-wrapper div:nth-child(4){
+    justify-content: center !important;
+  }
 }
 .contact-wrapper div::before {
   content: "";
@@ -361,4 +485,86 @@ a {
 .order-modal-message {
   color: rgb(0, 173, 0);
   text-align: center;
+}
+.ReactModal__Overlay,.ReactModal__Overlay--after-open{
+  background-color:rgba(0, 0, 0, 0.836) !important;
+}
+.ReactModal__Content{
+  width:550px !important;
+  height:70% !important;
+  background-color:whitesmoke !important;
+  left:30% !important;
+  top:15% !important;
+  border:1px solid black !important;
+}
+@media only screen and (max-width:1250px){
+  .ReactModal__Content{
+    width: 500px !important;
+  }
+}
+@media only screen and (max-width:1000px){
+  .ReactModal__Content{
+    width: 400px !important;
+  }
+  .final-modal-div strong{
+  font-size: 10px;
+  padding-top: 5px;
+  }
+}
+@media only screen and (max-width:850px){
+  .ReactModal__Content{
+    width: 350px !important;
+  }
+}
+@media only screen and (max-width:800px){
+  .ReactModal__Content{
+    left: 25% !important;
+    top: 10% !important;
+  }
+}
+@media only screen and (max-width:650px){
+  .ReactModal__Content{
+    left: 20% !important;
+  }
+}
+@media only screen and (max-width:550px){
+  .ReactModal__Content{
+    left: 16% !important;
+  }
+}
+@media only screen and (max-width:500px){
+  .ReactModal__Content{
+    left: 12% !important;
+  }
+}
+@media only screen and (max-width:450px){
+  .ReactModal__Content{
+    width: 300px !important;
+    font-size: 12px !important;
+    left: 16% !important;
+  }
+  .final-modal-div strong{
+    font-size: 8px !important;
+    padding-top: 2px !important;
+    }
+}
+@media only screen and (max-width:400px){
+  .ReactModal__Content{
+    left: 10% !important;
+  }
+}
+@media only screen and (max-width:360px){
+  .ReactModal__Content{
+    left: 7% !important;
+  }
+}
+@media only screen and (max-width:340px){
+  .ReactModal__Content{
+    left: 5% !important;
+  }
+}
+@media only screen and (max-width:325px){
+  .ReactModal__Content{
+    left: 2% !important;
+  }
 }

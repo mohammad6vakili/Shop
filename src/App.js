@@ -22,9 +22,9 @@ const App=()=>{
                     <ul className='nav-list'>
                       <Zoom><Link to='/'><li id='first-nav-link' className='nav-link'>Shop</li></Link></Zoom>
                       <Fade top>
-                      <li className='nav-link'><a href='https://github.com/mohammad6vakili/shopping-cart'>GitHub</a></li>
-                      <Link className='router-link' to='/contact'><li className='nav-link'>Contact</li></Link>
-                      <li className='nav-link ml-auto'>MohammadAli Vakilidoost</li>
+                      <li  className='nav-link'><a href='https://github.com/mohammad6vakili/shopping-cart'>GitHub</a></li>
+                      <Link id='router-link' to='/contact'><li className='nav-link'>Contact</li></Link>
+                      <li className='nav-link nav-name ml-auto'>MohammadAli Vakilidoost</li>
                       </Fade>
                     </ul>
                   </header>
@@ -38,7 +38,7 @@ const App=()=>{
                     </Switch> 
                   </main>
 
-                  <footer className='footer'>All Right Reserved.</footer>
+                  <footer className='footer'>Developed by :<b className='ml-2'><i> MohammadAli Vakilidoost </i></b></footer>
                 </Router>
             </div>
         </AppProvider>

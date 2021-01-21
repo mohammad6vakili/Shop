@@ -40,32 +40,18 @@ const Shop =()=>{
             <Filter />
     
     
-            <div className='div container-fluid row'>
+            <div className='shop-container container-fluid'>
 
             {order && 
-                        <Modal 
-                        style={{
-                            overlay:{
-                                backgroundColor:'rgba(0, 0, 0, 0.781)'
-                            },
-                            content:{
-                                width:550+'px',
-                                height:600+'px',
-                                backgroundColor:'whitesmoke',
-                                left:30+'%',
-                                top:15+'%',
-                                border:'1px solid black',
-                            }
-                        }}
-                        isOpen={true} onRequestClose={closeOrder}>
+                        <Modal isOpen={true} onRequestClose={closeOrder}>
                         <Fade top> 
                             <div className='d-flex justify-content-end mb-1'><span style={{cursor:'pointer',fontSize:32+'px'}} onClick={closeOrder}>X</span></div>
                             <h1 className='order-modal-message mb-5'>successful</h1>
-                            <div className='d-flex justify-content-between mb-4 pr-3 pl-3'><span>Name :</span> <strong>{name}</strong></div>
-                            <div className='d-flex justify-content-between mb-4 pr-3 pl-3'><span>Email :</span> <strong>{email}</strong></div>
-                            <div className='d-flex justify-content-between mb-4 pr-3 pl-3'><span>Address :</span> <strong>{address}</strong></div>
-                            <div className='d-flex justify-content-between mb-4 pr-3 pl-3'><span>Date :</span> <strong>{Date()}</strong></div>
-                            <div className='d-flex justify-content-between mb-5 pr-3 pl-3'><span>Total :</span> <strong>{"  $  "}{ cartItems.reduce((a,c)=>a+c.price*c.count,0).toFixed(2)}</strong></div>
+                            <div className='d-flex justify-content-between mb-4 pr-3 pl-3  '><span>Name :</span> <strong>{name}</strong></div>
+                            <div className='d-flex justify-content-between mb-4 pr-3 pl-3 '><span>Email :</span> <strong>{email}</strong></div>
+                            <div className='d-flex justify-content-between mb-4 pr-3 pl-3 '><span>Address :</span> <strong>{address}</strong></div>
+                            <div className='d-flex justify-content-between mb-4 pr-3 pl-3 final-modal-div'><span>Date :</span> <strong>{Date()}</strong></div>
+                            <div className='d-flex justify-content-between mb-5 pr-3 pl-3 '><span>Total :</span> <strong>{"  $  "}{ cartItems.reduce((a,c)=>a+c.price*c.count,0).toFixed(2)}</strong></div>
                             <div className='order-modal-item'>
                                 <h3>Items :</h3>
                                 <div>{cartItems.map((item)=>(
@@ -76,11 +62,11 @@ const Shop =()=>{
                         </Modal>
             }
 
-                <div className='content col-9'>
+                <div className='content'>
                     <Product />
                 </div>
     
-                <div className='sidebar col-3 mt-3'>
+                <div className='sidebar mt-3'>
                     <Cart />
     
                 </div>
