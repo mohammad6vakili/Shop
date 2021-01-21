@@ -40,6 +40,9 @@ const Product =()=>{
 
                     overlay:{
                         backgroundColor:'rgba(0, 0, 0, 0.781)'
+                    },
+                    content:{
+                        padding:10+'px',
                     }
 
                     }} isOpen={true} onRequestClose={closeModal}>
@@ -48,7 +51,7 @@ const Product =()=>{
                             <button onClick={closeModal}>X</button>
                         </div>
                         <div className='product-details'>
-                            <img src={modal.product.image} alt={modal.product.title}/>
+                            <img style={{paddingBottom:20+'px'}} src={modal.product.image} alt={modal.product.title}/>
                             <div className='product-details-description'>
                                 <p>
                                     <strong>{modal.product.title}</strong>
