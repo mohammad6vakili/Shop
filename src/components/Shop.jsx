@@ -70,6 +70,7 @@ const Shop =()=>{
                     <Cart />
     
                 </div>
+
     
             </div>
         </React.Fragment>
